@@ -9,11 +9,9 @@ from urllib.parse import urlparse
 
 DEFAULT_FAQ_PATH = Path(__file__).resolve().parent.parent / "data" / "FAQs_Parachute_SA_Guatemala_2026.txt"
 
-# Coordenadas fijas del punto de salto (Puerto San Jose, Escuintla, Guatemala).
 DROP_ZONE_LATITUDE = 14.013722
 DROP_ZONE_LONGITUDE = -90.771611
 
-# Open-Meteo documenta hasta 16 dias de pronostico: hoy (dia 0) + 15 dias adicionales.
 MAX_FORECAST_HORIZON_DAYS = 15
 
 OPEN_METEO_FORECAST_URL = "https://api.open-meteo.com/v1/forecast"

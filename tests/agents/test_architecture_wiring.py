@@ -30,7 +30,6 @@ def test_hierarchical_root_manager_has_two_levels():
     root_manager, _context = build_root_manager()
     root_tool_names = {tool.name for tool in root_manager.tools}
     assert root_tool_names == {"knowledge_manager", "booking_manager"}
-    # El Root Manager nunca debe exponer directamente a los especialistas de hoja.
     assert "faq_specialist" not in root_tool_names
     assert "weather_specialist" not in root_tool_names
 
@@ -58,8 +57,6 @@ def test_decentralized_has_no_permanent_global_supervisor():
     model = build_model(config)
     faq_agent, weather_agent, scheduling_agent = build_decentralized_agents(model)
 
-    # Ninguno de los tres agentes usa as_tool() de los otros como supervisor global;
-    # todos se relacionan solo mediante handoffs (control transferido, no delegado).
     for agent in (faq_agent, weather_agent, scheduling_agent):
         assert isinstance(agent, Agent)
         tool_names = {tool.name for tool in agent.tools}

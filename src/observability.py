@@ -22,9 +22,6 @@ def configure_logging(level: int = logging.INFO) -> None:
     logger.addHandler(handler)
     logger.setLevel(level)
     logger.propagate = False
-
-    # Sin OPENAI_API_KEY (usamos Groq), el exportador de trazas del SDK puede fallar
-    # de forma no controlada; la deshabilitamos y usamos nuestro propio logging.
     set_tracing_disabled(True)
 
 

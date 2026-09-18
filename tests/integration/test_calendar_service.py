@@ -53,7 +53,7 @@ def test_create_appointment_never_created_for_prohibited():
     service = InMemoryCalendarService()
     with pytest.raises(CalendarServiceError):
         service.create_appointment(make_data(), make_assessment(Decision.PROHIBITED))
-    assert service.check_availability(JUMP_DATE) is True  # nada se reservo
+    assert service.check_availability(JUMP_DATE) is True
 
 
 def test_create_appointment_requires_experienced_tandem_for_marginal():

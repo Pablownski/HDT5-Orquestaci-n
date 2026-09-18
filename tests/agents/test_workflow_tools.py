@@ -53,9 +53,6 @@ def test_evaluate_jump_day_rejects_date_outside_horizon(build_context):
     assert context.jump_assessment is None
 
 
-# --- Anti-bypass: create_appointment nunca debe poder saltarse la evaluacion ---
-
-
 def test_create_appointment_refused_without_prior_weather_check(build_context):
     context = build_context({})
     result = book_appointment(context, "Juan Perez", "juan@example.com")

@@ -33,7 +33,7 @@ async def run_chat_async(starting_agent: Agent, context: ParachuteContext, archi
         log_event(architecture=architecture_name, agent=current_agent.name)
         try:
             result = await Runner.run(current_agent, history, context=context)
-        except Exception as error:  # errores de red/proveedor no deben tumbar el REPL
+        except Exception as error:
             print(f"Ocurrio un error al procesar tu mensaje: {error}")
             continue
 

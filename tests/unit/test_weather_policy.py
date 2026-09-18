@@ -25,9 +25,6 @@ def make_weather(
     )
 
 
-# --- Viento ---
-
-
 @pytest.mark.parametrize(
     "speed,expected",
     [
@@ -42,9 +39,6 @@ def test_wind_thresholds(speed, expected):
     assert assessment.decision == expected
 
 
-# --- Rafagas ---
-
-
 @pytest.mark.parametrize(
     "gust,expected",
     [
@@ -55,9 +49,6 @@ def test_wind_thresholds(speed, expected):
 def test_gust_thresholds(gust, expected):
     assessment = assess_jump_conditions(make_weather(gust=gust))
     assert assessment.decision == expected
-
-
-# --- Precipitacion ---
 
 
 @pytest.mark.parametrize(
@@ -72,9 +63,6 @@ def test_precipitation_thresholds(precipitation, expected):
     assert assessment.decision == expected
 
 
-# --- Nubes ---
-
-
 @pytest.mark.parametrize(
     "clouds,expected",
     [
@@ -87,9 +75,6 @@ def test_precipitation_thresholds(precipitation, expected):
 def test_cloud_cover_thresholds(clouds, expected):
     assessment = assess_jump_conditions(make_weather(clouds=clouds))
     assert assessment.decision == expected
-
-
-# --- Combinaciones (peor condicion prevalece) ---
 
 
 def test_all_ideal_yields_ideal():

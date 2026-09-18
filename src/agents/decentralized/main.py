@@ -82,7 +82,6 @@ def build_decentralized_agents(model) -> tuple[Agent, Agent, Agent]:
         model=model,
     )
 
-    # Los handoffs se enlazan despues de crear los tres agentes porque son ciclicos.
     def _handoff(target: Agent) -> object:
         return handoff(target, on_handoff=_log_handoff_reason, input_type=HandoffReason)
 
