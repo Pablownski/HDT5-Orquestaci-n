@@ -6,6 +6,12 @@ gestionar citas de salto validando el clima con Open-Meteo — reutilizando
 exactamente el mismo nucleo de dominio, integraciones y tools. Lo unico que
 cambia entre las tres es la estrategia de orquestacion de agentes.
 
+## Demo en video
+
+[Video demostrativo](https://youtu.be/vHEtqMTmSos) de las tres arquitecturas
+funcionando contra Groq + Open-Meteo reales (FAQ, reserva con clima real,
+fecha fuera de horizonte).
+
 ## Prerequisites
 
 - Docker y Docker Compose (recomendado, no requiere instalar Python localmente).
@@ -132,7 +138,8 @@ con clima real, fecha fuera de horizonte) contra Groq + Open-Meteo reales para
 las tres arquitecturas, y guarda la transcripcion en
 `docs/smoke-test-output.txt`. No es parte de la suite de pytest porque
 depende de red y de un LLM no determinista; es la verificacion end-to-end que
-complementa a los 73 tests automatizados.
+complementa a los 73 tests automatizados. La corrida grabada en el
+[video demo](https://youtu.be/vHEtqMTmSos) usa este mismo script.
 
 ```bash
 docker compose run --rm -v "$(pwd)/docs:/app/docs" centralized \
